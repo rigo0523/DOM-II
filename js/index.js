@@ -49,9 +49,10 @@ divClick.forEach(item => {
 })
 
 //#5 onload of page 
-window.addEventListener('load', () => { // did not work 
-  window.alert('all files are loaded');
-})
+// window.addEventListener('load', () => { // will disable it so it doesn't pop up on ONLOAD
+//   window.alert('all files are loaded');
+  
+// })
 
 
 //#6 hight light fun bus H1
@@ -93,3 +94,23 @@ belowbus.addEventListener('wheel', (event) => {
   event.target.style.fontSize = "2em"
   event.target.append(' I JUST APPENDED TO THIS PARAGRAPH WHEN YOU SCROLLED DOWN/UP') // ADD MORE text as you scroll down/up with wheel on mouse 
 })
+
+
+//#11 GASP TEST on image to make it spin with animation 
+
+let boatImage = document.querySelector('.content-destination img');
+console.log(boatImage);
+
+let anim = gsap.to(boatImage, 1, {
+  x:0,
+  opacity:0.9,
+  rotation: 360,
+  width: '1600',
+  height: '250',
+  paused: true,
+})
+
+boatImage.addEventListener("click", (event) => {   
+anim.play()
+anim.restart()
+}, false);
